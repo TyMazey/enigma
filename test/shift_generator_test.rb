@@ -1,6 +1,6 @@
 require_relative 'test_helper'
 
-class ShiftGeneratorTest < Minitest::test
+class ShiftGeneratorTest < Minitest::Test
 
   def test_it_exsist
     shift = ShiftGenerator.new
@@ -17,7 +17,7 @@ class ShiftGeneratorTest < Minitest::test
               D: 15
     }
 
-    assert_equal exact, shift.key_values(02715)
+    assert_equal exact, shift.key_values('02715')
   end
 
   def test_it_can_create_date_values
@@ -29,7 +29,7 @@ class ShiftGeneratorTest < Minitest::test
               D: 5
     }
 
-    assert_equal exact, shift.date_values(040895)
+    assert_equal exact, shift.date_values('040895')
   end
 
   def test_it_can_create_final_shift_values

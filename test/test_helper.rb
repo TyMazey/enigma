@@ -8,3 +8,4 @@ require 'date'
 
 #lib files
 require './lib/enigma'
+require './lib/shift_generator'
