@@ -3,13 +3,13 @@ require_relative 'test_helper'
 class ShiftGeneratorTest < Minitest::Test
 
   def test_it_exsist
-    shift = ShiftGenerator.new
+    shift = ShiftGenerator.new('02715', '040895')
 
     assert_instance_of ShiftGenerator, shift
   end
 
   def test_it_can_create_key_values
-    shift = ShiftGenerator.new
+    shift = ShiftGenerator.new('02715', '040895')
 
     exact = { A: 02,
               B: 27,
@@ -17,11 +17,11 @@ class ShiftGeneratorTest < Minitest::Test
               D: 15
     }
 
-    assert_equal exact, shift.key_values('02715')
+    assert_equal exact, shift.key_values
   end
 
   def test_it_can_create_date_values
-    shift = ShiftGenerator.new
+    shift = ShiftGenerator.new('02715', '040895')
 
     exact = { A: 1,
               B: 0,
@@ -29,11 +29,11 @@ class ShiftGeneratorTest < Minitest::Test
               D: 5
     }
 
-    assert_equal exact, shift.date_values('040895')
+    assert_equal exact, shift.date_values
   end
 
   def test_it_can_create_final_shift_values
-    shift = ShiftGenerator.new
+    shift = ShiftGenerator.new('02715', '040895')
 
     key_values = { A: 02,
                    B: 27,
