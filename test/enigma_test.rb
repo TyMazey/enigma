@@ -45,4 +45,15 @@ class EnigmaTest < Minitest::Test
     assert_equal exact, enigma.encrypt("Hello World", "02715")
     assert_equal compare, enigma.decrypt("nfhauasdxm ", "02715", enigma.short_hand_date)
   end
+
+  def test_it_can_decrypt_message_without_date_by_using_current_date
+    enigma = Enigma.new
+
+    exact =  {decryption: "hello world",
+              key: "02715",
+              date: enigma.short_hand_date
+             }
+
+    assert_equal exact, enigma.decrypt("nfhauasdxm ", "02715")
+  end
 end
