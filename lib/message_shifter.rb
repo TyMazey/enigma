@@ -1,20 +1,25 @@
 class MessageShifter
+  attr_reader :alphabet,
+              :message
 
   def initialize(message)
     @alphabet = ('a'..'z').to_a.push(' ')
-    @message = message
+    @message = message.chars
   end
 
-  def split_message
-    @message.split('')
+  def key_rotation(key_value)
+    key_value.values
   end
 
-  def self.encrypt(message, key)
-    shift = new(message)
-    binding.pry
+  def shit_message(key)
+    key_rotation = key_rotation(key)
+    @message.map do |letter|
+      new_letter = Hash[@alphabet.zip(@alphabet.rotate(key_rotation[0]))]
+      key_rotation.rotate!(1)
+      new_letter[letter.downcase]
+    end
   end
 
-  def self.decrypt(message, key)
-    shift = new(message)
+  def self.new_message(message, key)
   end
 end
