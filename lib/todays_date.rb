@@ -7,7 +7,7 @@ class TodaysDate
     @today = Date.today.strftime
   end
 
-  def short_hand
+  def short_hand_date
     date_split = @today.split("-")
     date_split[2] + date_split[1] + yy
   end

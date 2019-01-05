@@ -29,4 +29,20 @@ class EnigmaTest < Minitest::Test
 
     assert_equal exact, enigma.decrypt("keder ohulw", "02715", "040895")
   end
+
+  def test_it_can_encrypt_message_without_date
+    enigma = Enigma.new
+
+    exact =  {encryption: "nfhauasdxm ",
+              key: "02715",
+              date: enigma.short_hand_date
+             }
+
+    compare =  {decryption: "hello world",
+                key: "02715",
+                date: enigma.short_hand_date
+              }
+    assert_equal exact, enigma.encrypt("Hello World", "02715")
+    assert_equal compare, enigma.decrypt("nfhauasdxm ", "02715", enigma.short_hand_date)
+  end
 end

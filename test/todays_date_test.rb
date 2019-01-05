@@ -25,6 +25,6 @@ class TodaysDateTest < Minitest::Test
     today = TodaysDate.new
 
 
-    assert_equal "050119", today.short_hand
+    assert_equal "050119", today.short_hand_date
   end
 end

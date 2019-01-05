@@ -22,6 +22,6 @@ class MessageShifter
 
   def self.new_message(message, key)
     new_mssg = new(message)
-    h = new_mssg.shift_message(key).join
+    new_mssg.shift_message(key).join
   end
 end
