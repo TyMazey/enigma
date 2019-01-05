@@ -23,6 +23,16 @@ class MessageShifterTest < Minitest::Test
     }
     exact = ["k", "e", "d", "e", "r"," ", "o", "h", "u", "l", "w"]
 
-    assert_equal exact, shift.shift(shift_values)
+    assert_equal exact, shift.shift_message(shift_values)
+  end
+
+  def test_it_can_create_new_message_with_shift_values
+    shift_values = { A: 3,
+              B: 27,
+              C: 73,
+              D: 20
+    }
+
+    assert_equal "keder ohulw", MessageShifter.new_message("Hello World", shift_values)
   end
 end

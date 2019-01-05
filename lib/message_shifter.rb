@@ -11,7 +11,7 @@ class MessageShifter
     key_value.values
   end
 
-  def shit_message(key)
+  def shift_message(key)
     key_rotation = key_rotation(key)
     @message.map do |letter|
       new_letter = Hash[@alphabet.zip(@alphabet.rotate(key_rotation[0]))]
@@ -21,5 +21,7 @@ class MessageShifter
   end
 
   def self.new_message(message, key)
+    new_mssg = new(message)
+    h = new_mssg.shift_message(key).join
   end
 end
