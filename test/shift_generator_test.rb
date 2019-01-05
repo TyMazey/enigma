@@ -51,7 +51,7 @@ class ShiftGeneratorTest < Minitest::Test
               D: 20
     }
 
-    assert_equal exact, shift.shift_values(key_values, date_values)
+    assert_equal exact, shift.shift_values(key_values, date_values, false)
   end
 
   def test_it_can_generate_shift_values_from_self
