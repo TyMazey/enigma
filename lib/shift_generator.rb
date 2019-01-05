@@ -25,15 +25,15 @@ class ShiftGenerator
     value
   end
 
-  def shift_values(key, date)
+  def shift_values(key, date, decrypt)
     key.merge!(date) do |hash_key, key_value, date_value|
       (key_value + date_value)
     end
   end
 
-  def self.generate(key, date)
+  def self.generate(key, date, decrypt = false)
     new_key = new(key, date)
-    new_key.shift_values(new_key.key_values, new_key.date_values)
+    new_key.shift_values(new_key.key_values, new_key.date_values, decrypt)
   end
 
 end

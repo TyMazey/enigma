@@ -22,7 +22,7 @@ class EnigmaTest < Minitest::Test
   def test_it_can_decrypt
     enigma = Enigma.new
 
-    exact =  {encryption: "hello world",
+    exact =  {decription: "hello world",
               key: "02715",
               date: "040895"
              }
