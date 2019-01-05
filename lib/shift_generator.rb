@@ -27,7 +27,11 @@ class ShiftGenerator
 
   def shift_values(key, date, decrypt)
     key.merge!(date) do |hash_key, key_value, date_value|
-      (key_value + date_value)
+      if decrypt
+        (-(key_value + date_value))
+      else
+        (key_value + date_value)
+      end
     end
   end
 
