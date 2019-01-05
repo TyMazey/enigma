@@ -6,7 +6,7 @@ class Enigma < TodaysDate
     super
   end
 
-  def encrypt(message, key, date = short_hand_date)
+  def encrypt(message, key = KeyGenerator.create(5), date = short_hand_date)
     new_message = MessageShifter.new_message(message, ShiftGenerator.generate(key, date))
     {encryption: new_message, key: key, date: date}
   end
