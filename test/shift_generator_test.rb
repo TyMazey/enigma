@@ -48,9 +48,19 @@ class ShiftGeneratorTest < Minitest::Test
     exact = { A: 3,
               B: 27,
               C: 73,
-              D:20
+              D: 20
     }
 
     assert_equal exact, shift.shift_values(key_values, date_values)
+  end
+
+  def test_it_can_generate_shift_values_from_self
+    exact = { A: 3,
+              B: 27,
+              C: 73,
+              D: 20
+    }
+
+    assert_equal exact, ShiftGenerator.generate('02715', '040895')
   end
 end
