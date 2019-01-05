@@ -3,9 +3,15 @@ require_relative 'test_helper'
 class MessageShifterTest < Minitest::Test
 
   def test_it_exsist
-    shift = MessageShifter.new("message", "shift_values")
+    shift = MessageShifter.new("message")
 
     assert_instance_of MessageShifter, shift
+  end
+
+  def test_it_can_split_message
+    shift = MessageShifter.new("ab c")
+
+    assert_equal ["a", "b", " ", "c"], shift.split_message
   end
 
   def test_it_can_shift_message
