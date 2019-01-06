@@ -1,15 +1,17 @@
 require_relative 'alphabet_shifter'
 
 class MessageShifter < AlphabetShifter
-  attr_reader :alphabet,
-              :message
 
   def initialize
-    super
+    @alphabet = ("a".."z").to_a.push(" ")
   end
 
   def key_rotation(key_value)
     key_value.values
+  end
+
+  def shift(amount)
+    super
   end
 
   def shift_message(message, key)
@@ -23,7 +25,6 @@ class MessageShifter < AlphabetShifter
 
   def self.new_message(message, key)
     new_mssg = new
-    new_mssg.alphabet(' ')
     new_mssg.shift_message(message, key).join
   end
 end

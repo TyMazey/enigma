@@ -1,11 +1,11 @@
 class AlphabetShifter
-  attr_reader :alphabet
+  attr_accessor :alphabet
 
   def initialize
     @alphabet = ('a'..'z').to_a
   end
 
-  def shift(rotation)
-    Hash[@alphabet.zip(@alphabet.rotate(rotation))]
+  def shift(amount)
+    Hash[@alphabet.zip(@alphabet.rotate(amount))]
   end
 end
