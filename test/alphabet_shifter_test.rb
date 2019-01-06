@@ -17,10 +17,37 @@ class AlphabetShifterTest < Minitest::Test
     assert_equal exact, shift.alphabet
   end
 
-  def test_it_can_rotate_alphabet
+  def test_it_can_make_hash_using_alphabet_as_key_and_rotated_alphabet_as_values
     shift = AlphabetShifter.new
 
-    exact = ["b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a"]
+    exact = { "a" => "b",
+              "b" => "c",
+              "c" => "d",
+              "d" => "e",
+              "e" => "f",
+              "f" => "g",
+              "g" => "h",
+              "h" => "i",
+              "i" => "j",
+              "j" => "k",
+              "k" => "l",
+              "l" => "m",
+              "m" => "n",
+              "n" => "o",
+              "o" => "p",
+              "p" => "q",
+              "q" => "r",
+              "r" => "s",
+              "s" => "t",
+              "t" => "u",
+              "u" => "v",
+              "v" => "w",
+              "w" => "x",
+              "x" => "y",
+              "y" => "z",
+              "z" => "a"
+    }
 
     assert_equal exact, shift.shift(1)
+  end
 end
