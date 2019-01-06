@@ -41,11 +41,11 @@ Additionally, create a Runner file called crack.rb that takes three command line
 ---
 ## Self Evaluation
 
-# Functionality: 4
+### Functionality: 4
   * crack method and cli were properly added.
-# OOP: 4
+### OOP: 4
   * have a module and a super class that both have potential use outside of this project. AlphabetShifter super class could be used for any type of cypher, and TodaysDate module could be used and updated whenever you need rubys Date.today object to return a very specific output using todays date. All classes are under 100 lines, no method is more than 8 lines, and variable names are clear.
-# TTD: 3
+### TTD: 3
   * All test are clearly named, and were created before functionality was made. SimpleCov shows 100% coverage. As of now no mocks or stubs were used.
-# Version Control: 3
-  * at time of writing 54 commits were made and 14 pull request. Commits were made individually for test and for each separate method or piece of functionality.
+### Version Control: 4
+  * at time of writing 54 commits were made and 15 pull request. Commits were made individually for test and for each separate method or piece of functionality.
