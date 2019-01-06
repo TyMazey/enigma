@@ -57,14 +57,16 @@ class EnigmaTest < Minitest::Test
     assert_equal exact, enigma.decrypt("nfhauasdxm ", "02715")
   end
 
-  def test_it_can_encrypt_message_with_no_date_or_key
-    skip
+  def test_it_can_crack_a_message_with_no_key
     enigma = Enigma.new
-    exact =  {encryption: String,
-              key: String,
-              date: enigma.short_hand_date
-             }
+    exact = {decryption: "hello world end",
+              key: "02715",
+              date: enigma.short_hand_date}
+    exact_2 = {decryption: "this works end",
+                key: "00000",
+              date: enigma.short_hand_date}
 
-    assert_equal exact, enigma.encrypt("Hello World")
+    assert_equal exact, enigma.crack("nfhauasdxm pko ")
+    assert_equal exact_2, enigma.crack("xiotdxusotffre")
   end
 end
