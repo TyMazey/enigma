@@ -1,28 +1,31 @@
 require_relative 'todays_date'
 
-class Enigma < TodaysDate
+class Enigma
+  include TodaysDate
 
   def initialize
-    super
+    @date_created = Date.today
   end
 
   def encrypt(message, key = KeyGenerator.create(5), date = short_hand_date)
-    new_message = MessageShifter.new_message(message, ShiftGenerator.generate(key, date))
+    shift = ShiftGenerator.generate(key, date)
+    new_message = MessageShifter.new_message(message, shift)
     {encryption: new_message, key: key, date: date}
   end
 
   def decrypt(message, key, date = short_hand_date)
-    new_message = MessageShifter.new_message(message, ShiftGenerator.generate(key, date, true))
+    shift = ShiftGenerator.generate(key, date, true)
+    new_message = MessageShifter.new_message(message, shift)
     {decryption: new_message, key: key, date: date}
   end
 
   def end_of_message(message, key, date)
-    decrypt(message, key, date)[:decryption].chars[-4..-1]
+    decrypt(message, key, date)[:decryption][-4..-1]
   end
 
   def crack(message, date = short_hand_date)
     key = "00000"
-    until end_of_message(message, key, date) == [" ", "e", "n", "d"]
+    until end_of_message(message, key, date) == " end"
       key.next!
     end
     decrypt(message, key, date)

@@ -39,5 +39,4 @@ class ShiftGenerator
     new_key = new(key, date)
     new_key.shift_values(new_key.key_values, new_key.date_values, decrypt)
   end
-
 end
