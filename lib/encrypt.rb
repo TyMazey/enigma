@@ -3,8 +3,8 @@ require_relative 'loader'
 message_location = ARGV[0]
 encryption_path = ARGV[1]
 
-message_path = File.open(message_location, "r")
-encryption = Enigma.new.encrypt(message_path.read)
+message = File.open(message_location, "r").read
+encryption = Enigma.new.encrypt(message)
 
 encrypted_file = File.open(encryption_path, "w")
 encrypted_file.write(encryption[:encryption])
