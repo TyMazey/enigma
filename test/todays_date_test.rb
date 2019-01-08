@@ -6,7 +6,7 @@ class TodaysDateTest < Minitest::Test
   def test_it_can_return_current_year_as_yy_not_yyyy
     enigma = Enigma.new
 
-    assert_equal "19", enigma.yy
+    assert_equal "19", enigma.format_year
   end
 
   def test_it_can_return_todays_date
