@@ -37,4 +37,15 @@ class MessageShifterTest < Minitest::Test
 
     assert_equal "keder ohulw", MessageShifter.new_message("Hello World", shift_values)
   end
+
+  def test_it_can_convert_key_rotation_hash_to_array_of_shift_values
+    shift = MessageShifter.new
+    shift_values = { A: 3,
+              B: 27,
+              C: 73,
+              D: 20
+    }
+
+    assert_equal [3, 27, 73, 20], shift.keys_to_array(shift_values)
+  end
 end
