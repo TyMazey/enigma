@@ -75,9 +75,9 @@ class EnigmaTest < Minitest::Test
               date: enigma.short_hand_date}
     exact_2 = {decryption: "this works end",
                 key: "00000",
-              date: enigma.short_hand_date}
+              date: "010119"}
 
     assert_equal exact, enigma.crack("nfhauasdxm pko ")
-    assert_equal exact_2, enigma.crack("xiotdxusotffre")
+    assert_equal exact_2, enigma.crack("xiotdxusotffre", "010119")
   end
 end
