@@ -8,6 +8,12 @@ class KeyGeneratorTest < Minitest::Test
     assert_instance_of KeyGenerator, key
   end
 
+  def test_it_can_randomize_a_number
+    key = KeyGenerator.new
+
+    assert ("1".."9"), key.randomizer
+  end
+
   def test_it_can_create_keys_by_length
     key_1 = KeyGenerator.create(5)
     key_2 = KeyGenerator.create(25)
