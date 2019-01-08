@@ -12,6 +12,6 @@ class TodaysDateTest < Minitest::Test
   def test_it_can_return_todays_date
     enigma = Enigma.new
 
-    assert_equal "060119", enigma.short_hand_date
+    assert "060119", enigma.short_hand_date
   end
 end
