@@ -49,12 +49,10 @@ class EnigmaTest < Minitest::Test
   def test_it_can_encrypt_message_without_key_or_date
     enigma = Enigma.new
 
-    exact =  {encryption: "lkemflnkf",
-              key: "02715",
-              date: enigma.short_hand_date
-             }
+    encryption =  enigma.encrypt("Hello World")
 
-    assert exact[:encryption], enigma.encrypt("Hello World")
+    assert_equal 11, encryption[:encryption].length
+    assert String, encryption[:encryption].class
   end
 
   def test_it_can_decrypt_message_without_date_by_using_current_date
